@@ -22,7 +22,7 @@ import Mustache from "mustachejs";
 const result = document.querySelector("#results");
 const template = document.querySelector("#card-template");
 // 2. fetch OMDBAPI to get the movie data
-const url = "http://www.omdbapi.com/?s=harry potter&apikey=adf1f2d7"
+const url = "https://www.omdbapi.com/?s=harry potter&apikey=adf1f2d7"
 // 3. insert the movies in the result div
 fetch(url)
   .then(response => response.json())
