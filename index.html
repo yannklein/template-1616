@@ -11,7 +11,7 @@
   <script type="importmap">
     {
       "imports": {
-        "mustachejs": "https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.2.0/mustache.min.js",
+        "mustachejs": "https://cdn.jsdelivr.net/npm/mustache@4.2.0/+esm",
         "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
       }
     }
@@ -19,30 +19,27 @@
 </head>
 <body>
   <div class="container">
-    <div id="app">
+    <div id="vue-example">
       {{message}}
     </div>
-
     <div id="results" class="row">
-      <!-- Your movie list goes here -->
+      <!-- Your movie list goes here -->    
+      <template id="movieCardTemplate">
+        {{#movies}}
+        <div class='col-4'>
+          <div class="card">
+            <img src="{{Poster}}" class="card-img-top" alt="{{Title}}">
+            <div class="card-body">
+              <h6 class="card-title">{{Title}}</h6>
+              <p class="card-text">{{Year}}</p>
+              <a href="https://www.imdb.com/title/{{imdbID}}" class="btn btn-primary" target="_blank">Go on IMDB</a>
+            </div>
+          </div>
+        </div>
+        {{/movies}}
+      </template>
     </div>
   </div>
-
-  <template id="movieCardTemplate">
-    {{#movies}}
-    <div class='col-4'>
-      <div class="card">
-        <img src="{{Poster}}" class="card-img-top" alt="">
-        <div class="card-body">
-          <h6 class="card-title">{{Title}}</h6>
-          <p class="card-text">{{Year}}</p>
-          <a href="https://www.imdb.com/title/{{imdbID}}" class="btn btn-primary" target="_blank">Go on IMDB</a>
-        </div>
-      </div>
-    </div>
-    {{/movies}}
-  </template>
-
   <!-- Import your own javascript -->
   <script src="javascript/application.js" type="module"></script>
 </body>
